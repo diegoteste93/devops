@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Segmentação de Rede OT da Edge</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .segment {
+            border: 2px solid #000;
+            padding: 10px;
+            margin: 10px;
+            width: 90%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .segment .header {
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .segment .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .box {
+            border: 1px solid #000;
+            padding: 10px;
+            margin: 5px;
+            text-align: center;
+            width: 120px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .firewall {
+            border: 2px dashed #f00;
+            background-color: #ffe5e5;
+        }
+        .dmz {
+            background-color: #e5f5ff;
+        }
+        .cloud {
+            background-color: #e5e5ff;
+        }
+        .level {
+            background-color: #e0ffe0;
+        }
+        .security {
+            background-color: #fff0e0;
+        }
+        .subnet {
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Segmentação de Rede OT da Edge</div>
+
+        <div class="segment cloud">
+            <div class="header">Nuvem Azure</div>
+            <div class="content">
+                <div class="box">SCADA</div>
+                <div class="box firewall">Firewall Azure</div>
+            </div>
+        </div>
+
+        <div class="segment">
+            <div class="header">Rede IT</div>
+            <div class="content">
+                <div class="box">ERP</div>
+                <div class="box">Sistemas Corporativos</div>
+                <div class="box firewall">Firewall IT</div>
+            </div>
+        </div>
+
+        <div class="segment dmz">
+            <div class="header">DMZ Industrial</div>
+            <div class="content">
+                <div class="box firewall">Firewall DMZ</div>
+            </div>
+        </div>
+
+        <div class="segment">
+            <div class="header">Rede OT (Níveis do Modelo Purdue)</div>
+            <div class="content">
+                <div class="box level">
+                    Nível 0: Sensores e Atuadores
+                    <div class="subnet">10.0.0.0/24</div>
+                </div>
+                <div class="box level">
+                    Nível 1: PLCs
+                    <div class="subnet">10.0.1.0/24</div>
+                </div>
+                <div class="box level">
+                    Nível 2: Supervisão e Controle Local
+                    <div class="subnet">10.0.2.0/24</div>
+                </div>
+                <div class="box level">
+                    Nível 3: Sistema de Controle Industrial
+                    <div class="subnet">10.0.3.0/24</div>
+                </div>
+                <div class="box firewall">
+                    Nível 3.5: DMZ Industrial
+                    <div class="subnet">10.0.4.0/24</div>
+                </div>
+                <div class="box level">
+                    Nível 4: Sistema de Gestão de Produção (MES)
+                    <div class="subnet">10.0.5.0/24</div>
+                </div>
+                <div class="box level">
+                    Nível 5: ERP e Sistemas Corporativos
+                    <div class="subnet">10.0.6.0/24</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="segment security">
+            <div class="header">Ferramentas de Segurança</div>
+            <div class="content">
+                <div class="box">Nozomi Networks</div>
+                <div class="box">Antivírus Industrial</div>
+                <div class="box">SIEM</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
